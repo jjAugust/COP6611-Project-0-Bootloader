@@ -55,15 +55,15 @@ print_boot0_done:
 
     /*Jump to Boot1*/
 load_boot1:
-    push $0x10
-    push $0
-    push $62
-    push $0x1
-    push $0x7e00
+    pushw $0x10
+    pushl $0x0
+    pushw $62
+    pushl $0x1
+    pushw $0x7e00
 
-    mov $0x0000, %eax
-    mov $0x42, %ah
-    mov %sp, %si
+    movw $0x0000, %eax
+    movb $0x42, %ah
+    movw %sp, %si
     int $0x13
     jmp 0x7e00
  

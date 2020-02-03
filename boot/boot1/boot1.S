@@ -148,6 +148,12 @@ protected_mode:
     mov %ax, %fs
     mov %ax, %gs
     mov %ax, %ss
+
+    /*Jump to Boot1main*/
+    pushl $smap
+    pushl $0x7c00
+    call boot1main
+    /*add $0x10, %esp*/
     
 
     /* It shall never reach here! */
